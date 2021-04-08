@@ -21,7 +21,7 @@ steps:
 
 - task: AppCenterDistribute@3
   inputs:
-    serverEndpoint: 3ef927a3acfa17b60d17eabd027f430acc172386
+    serverEndpoint: full_access_adr_token
     appSlug: 'mahendra.patel03/FirstFlutterApp'
     appFile: 
     buildVersion: '1.0'
