@@ -7,15 +7,27 @@ trigger:
 - main
 
 pool:
-- task: FlutterBuild@0
-  inputs:
-    target: 'apk'
-    projectDirectory: '.'
   vmImage: ubuntu-latest
 
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- task: FlutterInstall@0
+  displayName: "Install Flutter"
+  inputs:
+    channel: stable
+    version: latest
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 3ef927a3acfa17b60d17eabd027f430acc172386
+    appSlug: 'mahendra.patel03/FirstFlutterApp'
+    appFile: 
+    buildVersion: '1.0'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    destinationType: 'groups'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
